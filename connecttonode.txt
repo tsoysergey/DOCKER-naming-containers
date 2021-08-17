@@ -1,0 +1,2 @@
+worker_dns=$(kubectl get nodes | grep \<none\> | cut -d' ' -f1 | head -1)
+ssh $worker_dns
