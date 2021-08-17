@@ -1,0 +1,5 @@
+ssh $worker_dns
+sudo sed -i 's%\(/usr/bin/kubelet\) %\1 --eviction-hard=memory.available<1.8Gi %' /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+sudo systemctl daemon-reload  # reload the modified configuration file
+sudo systemctl restart kubelet
+exit
